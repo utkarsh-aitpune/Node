@@ -5,12 +5,17 @@ on:
     branches: [main]
 
 jobs:
-  hello:
+  start:
     runs-on: ubuntu-latest
 
     steps:
       - name: Print starting
         run: echo "Starting my GitHub Action!"
 
+  code-checkout:
+    runs-on: ubuntu-latest
+    needs: start
+
+    steps:
       - name: Checkout code
         uses: actions/checkout@v4
